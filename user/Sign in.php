@@ -16,24 +16,22 @@
 
     <?php
 
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            if (isset($_POST['submit'])) {
-                $FirstName = $_POST['FirstName'];
-                $LastName = $_POST['LastName'];
-                $Email = $_POST['Email'];
-                $Password = $_POST['Password'];
-                $ConfirmPassword = $_POST['ConfirmPassword'];
-                $sql = "INSERT INTO users (FirstName, LastName, Email, Password, ConfirmPassword) VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$ConfirmPassword')";
-                $result = $db->query($sql);
-                $row = $result->fetch(PDO::FETCH_ASSOC);
-                if($row){
-                    setcookie('login', $login, time() + 3600);
-                    header('Location: ../index.php');
-                }else{
-                    echo "Login ou mot de passe incorrect";
-                }
-            }
-        }
+        $fname =$_POST['FirstName'];
+        $lname =$_POST['LastName'];
+        $email =$_POST['Email'];
+        $password =$_POST['Password'];
+        $cpassword =$_POST['ConfirmPassword'];
+        $type =$_POST['Type'];
+        $date =$_POST['Date'];
+        $cin =$_POST['Cin'];
+        $nickname =$_POST['Nickname'];
+
+        $Sql = "INSERT INTO adherant (FirstName, LastName, Email, Password, ConfirmPassword, Type, Date, Cin, Nickname) VALUES ('$fname', '$lname', '$email', '$password', '$cpassword', '$type', '$date', '$cin', '$nickname')";
+        $db->exec($Sql);
+        header('Location: ../index.php');
+        
+
+
 
     ?>
 
@@ -59,52 +57,52 @@
               <h2 class="fw-bold mb-2 text-uppercase">Sign In</h2>
 
               <div class="form-outline form-white mb-4">
-                <input type="FirstName" id="FirstName" class="form-control form-control-lg" />
+                <input type="FirstName" id="FirstName" name="FirstName" class="form-control form-control-lg" />
                 <label class="form-label" for="FirstName">FirstName</label>
               </div>
 
                 <div class="form-outline form-white mb-4">
-                <input type="LastName" id="LastName" class="form-control form-control-lg" />
+                <input type="LastName" id="LastName"  name="LastName" class="form-control form-control-lg" />
                 <label class="form-label" for="LastName">LastName</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                <input type="Email" id="Email" class="form-control form-control-lg" />
+                <input type="Email" id="Email" name="Email" class="form-control form-control-lg" />
                 <label class="form-label" for="Email">Email</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                <input type="Password" id="Password" class="form-control form-control-lg" />
+                <input type="Password" id="Password" name="Password" class="form-control form-control-lg" />
                 <label class="form-label" for="Password">Password</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                <input type="ConfirmPassword" id="ConfirmPassword" class="form-control form-control-lg" />
+                <input type="ConfirmPassword" id="ConfirmPassword" name="ConfirmPassword" class="form-control form-control-lg" />
                 <label class="form-label" for="ConfirmPassword">ConfirmPassword</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                <input type="Type" id="Type" class="form-control form-control-lg" />
+                <input type="Type" id="Type" name="Type" class="form-control form-control-lg" />
                 <label class="form-label" for="Type">Type</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                    <input type="Date" id="Date" class="form-control form-control-lg" />
+                    <input type="Date" id="Date" name="Date" class="form-control form-control-lg" />
                     <label class="form-label" for="Date">Date of birth</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                    <input type="Cin" id="Cin" class="form-control form-control-lg" />
+                    <input type="Cin" id="Cin" name="Cin" class="form-control form-control-lg" />
                     <label class="form-label" for="Cin">Cin</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                    <input type="Nickname" id="Nickname" class="form-control form-control-lg" />
+                    <input type="Nickname" id="Nickname" name="Nickname" class="form-control form-control-lg" />
                     <label class="form-label" for="Nickname">Nickname</label>
                 </div>
                  
 
-              <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign In</button>
+              <button class="btn btn-outline-light btn-lg px-5" name="submit" type="submit">Sign In</button>
 
         
 
