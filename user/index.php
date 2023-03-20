@@ -1,5 +1,5 @@
-<?php include('./connectiondb.php');
-include('./connectiondb.php');
+<?php include('../connectiondb.php');
+include('./session.php');
 
 ?>
 
@@ -39,9 +39,13 @@ include('./connectiondb.php');
 					<div class="row">
 						<!-- LOGO -->
 						<div class="col-md-3">
+						<li class="nav-item d-flex align-items-center ">
+                    		<i class="fa-solid fa-right-to-bracket"></i>
+                    		<a class="btn" href="./logout.php" name="Deconnxion" role="button">Log </a>
+                		</li>
 							<div class="header-logo">
 								<a href="#" class="logo">
-									<img src="../img/logo.png" alt="">
+									<img src="./img/logo.png" alt="">
 								</a>
 							</div>
 						</div>
@@ -106,6 +110,7 @@ include('./connectiondb.php');
 						<li><a href="#">contact</a></li>
 						<li><a href="#">memory</a></li>
 					</ul>
+						
 					<!-- /NAV -->
 				</div>
 				<!-- /responsive-nav -->
@@ -166,12 +171,12 @@ include('./connectiondb.php');
        
 
 
-        <script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/slick.min.js"></script>
-		<script src="js/nouislider.min.js"></script>
-		<script src="js/jquery.zoom.min.js"></script>
-		<script src="js/main.js"></script>
+        <script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/slick.min.js"></script>
+		<script src="../js/nouislider.min.js"></script>
+		<script src="../js/jquery.zoom.min.js"></script>
+		<script src="../js/main.js"></script>
     
 </body>
 </html>

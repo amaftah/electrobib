@@ -33,9 +33,9 @@
           }else {
         
             session_start();
-            $_SESSION['email'] = $connect_result['Email'];
-            $_SESSION['password'] = $connect_result['Password'];
-            // $_SESSION['iD_adherant'] = $connect_result['ID_adherant'];
+            $_SESSION['Email'] = $connect_result['Email'];
+            $_SESSION['Password'] = $connect_result['Password'];
+            $_SESSION['iD_adherant'] = $connect_result['ID_adherant'];
             $_SESSION['nom'] = $connect_result['Nom'];
             
             header('Location: index.php');
