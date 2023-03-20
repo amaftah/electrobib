@@ -22,18 +22,24 @@
 
           $connect = "SELECT * FROM `adherant` WHERE Email = '$email' AND Password = '$password'";
           $result_co = $db->prepare($connect);
-          $resul_co->execute();
-          $connect_result = $result_co->fetchAll(PDO::FETCH_ASSOC);
+          $result_co->execute();
+          
+          $connect_result = $result_co->fetch(PDO::FETCH_ASSOC);
           $count = $result_co->rowCount();
+          
           if ($count == 0){
-            $error = 'Email or Password is incorrect';
+             echo $error = 'Email or Password is incorrect';
+
           }else {
+        
             session_start();
-            $_SESSION['Email'] = $connect_result['Email'];
-            $_SESSION['Password'] = $connect_result['Password'];
-            $_SESSION['ID_adherant'] = $connect_result['ID_adherant'];
-            $_SESSION['Nom'] = $connect_result['Nom'];
-            header('Location: ../index.php');
+            $_SESSION['email'] = $connect_result['Email'];
+            $_SESSION['password'] = $connect_result['Password'];
+            // $_SESSION['iD_adherant'] = $connect_result['ID_adherant'];
+            $_SESSION['nom'] = $connect_result['Nom'];
+            
+            header('Location: index.php');
+             
           }
         }
     ?>
@@ -59,21 +65,21 @@
 
               <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
               <p class="text-white-50 mb-5">Please enter your login and password!</p>
-
+            <form method = "POST" action= "#">
               <div class="form-outline form-white mb-4">
                 <input type="email" name="Email" id="typeEmailX" class="form-control form-control-lg" />
                 <label class="form-label" for="typeEmailX">Email</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="password" name="Password" id="typePasswordX" class="form-control form-control-lg" />
+                <input type="password" name="Password" id="typePasswordX" class="form-control form-control-lg" <?= $error?> />
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
 
               <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 
               <button class="btn btn-outline-light btn-lg px-5" href="" name="submit" type="submit">Login</button>
-
+      </form>
               <div class="d-flex justify-content-center text-center mt-4 pt-1">
                 <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
                 <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>

@@ -1,9 +1,5 @@
 <?php include('./connectiondb.php');
-session_start();
-
-if(!isset($_SESSION['Email'])) {  
-  header('Location: ./user/login.php');
-} 
+include('./connectiondb.php');
 
 ?>
 
@@ -16,16 +12,16 @@ if(!isset($_SESSION['Email'])) {
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
- 		<link type="text/css" rel="stylesheet" href="./css/bootstrap.min.css"/>
+ 		<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"/>
 
- 		<link type="text/css" rel="stylesheet" href="./css/slick.css"/>
- 		<link type="text/css" rel="stylesheet" href="./css/slick-theme.css"/>
+ 		<link type="text/css" rel="stylesheet" href="../css/slick.css"/>
+ 		<link type="text/css" rel="stylesheet" href="../css/slick-theme.css"/>
 
- 		<link type="text/css" rel="stylesheet" href="./css/nouislider.min.css"/>
+ 		<link type="text/css" rel="stylesheet" href="../css/nouislider.min.css"/>
 
  		<link rel="stylesheet" href="../css/font-awesome.min.css">
 
- 		<link type="text/css" rel="stylesheet" href="./css/style.css"/>
+ 		<link type="text/css" rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
 <header>
@@ -125,11 +121,11 @@ if(!isset($_SESSION['Email'])) {
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="./img/shop01.png" alt="">
+								<img src="../img/shop01.png" alt="">
 							</div>
 							<div class="shop-body">
 								<h3>books<br>Collection</h3>
-								<a href="./books.php" class="cta-btn">Reserve now <i class="fa fa-arrow-circle-right"></i></a>
+								<a href="../books.php" class="cta-btn">Reserve now <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -139,11 +135,11 @@ if(!isset($_SESSION['Email'])) {
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="./img/shop02.png" alt="">
+								<img src="../img/shop02.png" alt="">
 							</div>
 							<div class="shop-body">
 								<h3>DVD<br>Collection</h3>
-								<a href="./DVD.php" class="cta-btn">Reserve now <i class="fa fa-arrow-circle-right"></i></a>
+								<a href="../DVD.php" class="cta-btn">Reserve now <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -153,11 +149,11 @@ if(!isset($_SESSION['Email'])) {
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="./img/shop03.png" alt="">
+								<img src="../img/shop03.png" alt="">
 							</div>
 							<div class="shop-body">
 								<h3>magazine<br>Collection</h3>
-								<a href="./magazine.php" class="cta-btn">Reserve  now <i class="fa fa-arrow-circle-right"></i></a>
+								<a href="../magazine.php" class="cta-btn">Reserve  now <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>

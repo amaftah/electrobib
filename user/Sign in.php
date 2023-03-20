@@ -22,14 +22,15 @@ session_start();
    if (isset($_POST['submit'])) { 
     $name = $_POST['FirstName'];
     $email = $_POST['Email'];
+    $adress = $_POST['Adress'];
     $password = $_POST['Password'];
-    $confirmPassword = $_POST['ConfirmPassword'];
+
     $type = $_POST['Type'];
     $date = $_POST['Date'];
     $cin = $_POST['Cin'];
     $nickname = $_POST['Nickname'];
 
-    $creat  = "INSERT INTO `adherant`(`Type` ,`Nom`,`Password`,`Adress`,`Email`,`date_naissance`,`Nickname`) VALUES ('$type', '$name', '$password', '$email', '$cin', '$date', '$nickname')";
+    $creat  = "INSERT INTO `adherant`(`Type` ,`Nom`,`Password`,`Adress`,`Email`,`Cin`,`date_naissance`,`Nickname`) VALUES ('$type', '$name', '$password', '$adress','$email','$cin', '$date', '$nickname')";
     $result = $db->prepare($creat);
     $result->execute();
 
@@ -145,8 +146,8 @@ session_start();
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                <label class="form-label" for="ConfirmPassword">ConfirmPassword</label>
-                <input type="Password" id="ConfirmPassword" name="ConfirmPassword" class="form-control form-control-lg" value="">
+                <label class="form-label" for="ConfirmPassword">Adress</label>
+                <input type="text" id="ConfirmPassword" name="Adress" class="form-control form-control-lg" value="">
                 
                 </div>
 
