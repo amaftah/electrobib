@@ -1,5 +1,4 @@
-<?php include('../connectiondb.php'); ?>
-
+<?php include("connectiondb.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,30 +13,7 @@
 </head>
 <body >
 
-    <?php
-        $error = '';
-        if (isset($_POST['submit'])){
-          $email = $_POST['Email'];
-          $password = $_POST['Password'];
-
-          $connect = "SELECT * FROM `adherant` WHERE Email = '$email' AND Password = '$password'";
-          $result_co = $db->prepare($connect);
-          $resul_co->execute();
-          $connect_result = $result_co->fetchAll(PDO::FETCH_ASSOC);
-          $count = $result_co->rowCount();
-          if ($count == 0){
-            $error = 'Email or Password is incorrect';
-          }else {
-            session_start();
-            $_SESSION['Email'] = $connect_result['Email'];
-            $_SESSION['Password'] = $connect_result['Password'];
-            $_SESSION['ID_adherant'] = $connect_result['ID_adherant'];
-            $_SESSION['Nom'] = $connect_result['Nom'];
-            header('Location: ../index.php');
-          }
-        }
-    ?>
-
+   
 
 
 
