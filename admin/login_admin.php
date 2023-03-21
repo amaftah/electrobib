@@ -1,4 +1,4 @@
-<?php include("connectiondb.php"); ?>
+<?php include("../connectiondb.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +13,38 @@
 </head>
 <body >
 
+
+<?php 
+  if (isset($_POST['submit'])){
+    $email = $_POST['Email'];
+    $password = $_POST['Password'];
+
+    $connect = "SELECT * FROM `bibliothécair` WHERE Email_bib = '$email' AND Password_bib = '$password'";
+    $result_co = $db->prepare($connect);
+    $result_co->execute();
+    
+    $connect_result = $result_co->fetch(PDO::FETCH_ASSOC);
+    $count = $result_co->rowCount();
+    
+    if ($count == 0){
+       echo $error = 'Email or Password is incorrect';
+
+    }else {
+  
+      session_start();
+      $_SESSION['Email'] = $connect_result['Email_bib'];
+      $_SESSION['Password'] = $connect_result['Password_bib'];
+      $_SESSION['iD_bib'] = $connect_result['Id_bib'];
+      $_SESSION['nom'] = $connect_result['Nom_bib'];
+      
+      header('Location: ../user/index.php');
+       
+    }
+  }
+
+
+?>
+
    
 
 
@@ -25,7 +57,7 @@
 
 
 
-<section class="vh-100 gradient-custom">
+<form class="vh-100 gradient-custom" method = "POST" action = "#">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
